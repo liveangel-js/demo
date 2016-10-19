@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.dao.CustomerDao;
+import com.example.dao.CustomerRepository;
 import com.example.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class CustomerController {
 
     @Autowired
-    private CustomerDao customerDao;
+    private CustomerRepository customerRepository;
     //http://127.0.0.1:8080/get-by-email?email=qiyadeng@gmail.com
     @RequestMapping("/get-by-email")
     @ResponseBody
     public String getByEmail(String email) {
         String userId;
         
-        Customer customer = customerDao.findByEmail(email);
+        Customer customer = customerRepository.findByEmail(email);
         if (customer != null) {
             userId = String.valueOf(customer.getId());
             return "The user id is: " + userId;

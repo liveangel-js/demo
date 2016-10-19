@@ -18,19 +18,32 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     // The user email
-    @NotNull
+//    @NotNull
     private String email;
     // The user name
-    @NotNull
     private String name;
-    @Column(nullable = false)
+
     private String address;
+//    @Column(nullable = false)
+    private String firstName;
+    private String lastName;
+
     // ==============
     // PUBLIC METHODS
     // ==============
-    public Customer() { }
-    public Customer(long id) {
-        this.id = id;
+    protected Customer() {}
+    public Customer(String firstName, String lastName,String name, String email, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.name = name;
+        this.address = address;
+    }
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id=%d, firstName='%s', lastName='%s']",
+                id, firstName, lastName);
     }
     public long getId(){
         return this.id;
