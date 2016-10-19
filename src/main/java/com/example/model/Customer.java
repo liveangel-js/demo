@@ -10,6 +10,10 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "customer")
 public class Customer {
+    public void setId(long id) {
+        this.id = id;
+    }
+
     // ==============
     // PRIVATE FIELDS
     // ==============
@@ -17,6 +21,47 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     // The user email
 //    @NotNull
     private String email;
