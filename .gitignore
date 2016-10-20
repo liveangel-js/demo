@@ -21,3 +21,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### static ###
+src/main/resources/static/static
