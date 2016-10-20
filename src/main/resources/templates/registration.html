@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Create an account</title>
+    <link rel="stylesheet" th:href="@{static/admin-lte/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<div class="container">
+
+    <form th:object="${userForm}" th:action="@{/registration}" method="post">
+        <div class="form-group">
+            <input type="text" th:field="*{username}"class="form-control" placeholder="Username"
+                        autofocus="true"/>
+            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">errors</div>
+        </div>
+            <div class="form-group">
+                <input type="password" th:field="*{password}"class="form-control" placeholder="Password"/>
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">errors</div>
+            </div>
+
+            <div class="form-group">
+                <input type="password" th:field="*{passwordConfirm}" class="form-control"
+                            placeholder="Confirm your password"/>
+                <div th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">errors</div>
+            </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+
+</div>
+
+</body>
+</html>
